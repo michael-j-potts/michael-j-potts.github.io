@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(224, 68, 6)}
+    .button1 {background-color: rgb(224, 6, 213)}
 </style>
 <body onload='init()'>
     
@@ -72,11 +72,28 @@
                 .call(d3.axisBottom(xs));
         }
 
-        async function scene_two() {
-            var data2 = [8,16,30,32,84];
-            d3.select("svg").selectAll("rect").data(data2)
+        function update_data() {
+            data = [];
+            for(let i=0; i < 6; i++) {
+                data.push(Math.random() * 800);
+            }
+        }
+
+        function update() {
+            var xs = d3.scaleBand().domain([0,1,2,3,4,5]).range([0, 200]),
+                ys = d3.scaleLinear().domain([0,120]).range([200,0]);
+
+            d3.select("svg").selectAll("rect").data(data).join("rect")
                 .transition()
+                .attr("x", function(d, i) {return xs(i);})
+                .attr("y", function(d, i) {return ys(d);})
+                .attr("width", xs.bandwidth())
                 .attr("height", function(d) {return height - ys(d);});
+        }
+
+        async function scene_two() {
+            update_data();
+            update();
         }
     
     </script>
