@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(213, 226, 25)}
+    .button1 {background-color: rgb(18, 29, 129)}
 </style>
 <body onload='init()'>
     
@@ -82,6 +82,10 @@
         function update() {
             var xs = d3.scaleBand().domain([0,1,2,3,4,5]).range([0, 200]),
                 ys = d3.scaleLinear().domain([0,120]).range([200,0]);
+
+            var margin = 50,
+                height = 200,
+                width = 200;
 
             d3.select("svg").selectAll("rect").data(data).join("rect")
                 .transition()
