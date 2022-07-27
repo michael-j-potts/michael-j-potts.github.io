@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(224, 71, 10)}
+    .button1 {background-color: rgb(10, 224, 28)}
 </style>
 <body onload='init()'>
     
@@ -50,8 +50,9 @@
 
             var margin = 50,
                 height = 200,
-                width = 200
-                data = [4,8,15,16,23,42];
+                width = 200,
+                data = [4,8,15,16,23,42],
+                maximum = Math.max(data);
 
             d3.select("svg").attr("width", width + 2 * margin)
                 .attr("height", height + 2 * margin)
@@ -78,11 +79,12 @@
             for(let i=0; i < 6; i++) {
                 data.push(Math.random() * 800);
             }
+            maximum = Math.max(data);
         }
 
         function update() {
             var xs = d3.scaleBand().domain([0,1,2,3,4,5]).range([0, 200]),
-                ys = d3.scaleLinear().domain([0,120]).range([200,0]);
+                ys = d3.scaleLinear().domain([0,maximum]).range([200,0]);
 
             var margin = 50,
                 height = 200;
