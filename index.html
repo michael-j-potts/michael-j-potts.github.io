@@ -73,7 +73,9 @@
         }
 
         async function scene_two() {
-            d3.select("#rect").remove();
+            var data2 = [8,16,30,32,84];
+            d3.select("#rect").transition().duration(1000).data(data2)
+                .attr("height", function(d) {return height - ys(d);});
         }
     
     </script>
