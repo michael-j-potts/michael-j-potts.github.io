@@ -6,7 +6,7 @@
   <title>Michael Potts</title>
 </head>
 
-<style> circle {fill: rgb(28, 97, 224); stroke: black;} rect {fill: green; stroke: black;} </style>
+<style> circle {fill: rgb(28, 152, 224); stroke: black;} rect {fill: rgb(46, 202, 202); stroke: black;} </style>
 <body onload='init()'>
     
     <!-- Header -->
@@ -63,10 +63,10 @@
             d3.select("svg").append("g")
                 .attr("transform", "translate("+margin+","+(height + margin)+")")
                 .call(d3.axisBottom(xs));
-    }
+        }
 
-    async function scene_two() {
-            d3.select(id).html = "";
+        async function scene_two() {
+            d3.select("svg").empty;
         }
     
     </script>
