@@ -37,8 +37,9 @@
             <p>This is the intro for my narrative visualization project</p>
         </div>
     </div>
-    <svg width=960 height=540>
-    </svg>
+
+    <svg width=960 height=540></svg>
+
     <button class="button button1" onclick="scene_two">Next scene</button>
 
     <script>
@@ -71,7 +72,7 @@
         }
 
         async function scene_two() {
-            d3.select("svg").empty;
+            d3.select("svg").empty();
         }
     
     </script>
