@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(197, 31, 189)}
+    .button1 {background-color: rgb(120, 194, 25)}
 </style>
 <body onload='init()'>
     
@@ -91,6 +91,10 @@
                 .transition()
                 .attr("y", function(d, i) {return ys(d);})
                 .attr("height", function(d) {return height - ys(d);});
+
+            d3.select("svg").append("g")
+                .transition()
+                .call(ys)
                 
         }
 
