@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(10, 224, 21)}
+    .button1 {background-color: rgb(10, 60, 224)}
 </style>
 <body onload='init()'>
     
@@ -92,7 +92,8 @@
                 .attr("y", function(d, i) {return ys(d);})
                 .attr("height", function(d) {return height - ys(d);});
 
-            d3.select("svg").select("#y.axis")
+            d3.select("svg").append("g")
+                .attr("transform", "translate("+margin+","+margin+")")
                 .transition()
                 .call(d3.axisLeft(ys));
         }
