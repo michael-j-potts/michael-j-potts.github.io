@@ -6,7 +6,12 @@
   <title>Michael Potts</title>
 </head>
 
-<style> circle {fill: rgb(28, 152, 224); stroke: black;} rect {fill: rgb(46, 202, 202); stroke: black;} </style>
+<style> 
+    circle {fill: rgb(28, 152, 224); stroke: black;} 
+    rect {fill: rgb(46, 202, 202); stroke: black;} 
+    .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;}
+    .button1 {background-color: green}
+</style>
 <body onload='init()'>
     
     <!-- Header -->
@@ -35,6 +40,7 @@
     </div>
     <svg width=960 height=540>
     </svg>
+    <button class="button button1">Next scene</button>
 
     <script>
         async function init() {
