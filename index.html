@@ -30,15 +30,45 @@
     <div class="full-width section-intro">
         <div class="container">
             <p>This is the intro for my narrative visualization project</p>
+            <p ondblclick="scene_two()">Scene Two</p>
         </div>
     </div>
     <svg width=960 height=540>
     </svg>
 
     <script>
-    async function init() {
-        
+        async function init() {
+            var xs = d3.scaleBand().domain([0,1,2,3,4,5]).range([0, 200]),
+                ys = d3.scaleLinear().domain([0,42]).range([200,0]);
+
+            var margin = 50,
+                height = 200,
+                width = 200;
+
+            d3.select("svg").attr("width", width + 2 * margin)
+                .attr("height", height + 2 * margin)
+                .append("g").attr("transform", "translate("+margin+","+margin+")")
+                .selectAll("rect").data(data).enter()
+                .append('rect')
+                .attr("x", function(d, i) {return xs(i);})
+                .attr("y", function(d, i) {return ys(d);})
+                .attr("width", xs.bandwidth())
+                .attr("height", function(d) {return height - ys(d);});
+            
+            d3.select("svg").append("g")
+                .attr("transform", "translate("+margin+","+margin+")")
+                .call(d3.axisLeft(ys));
+
+            d3.select("svg").append("g")
+                .attr("transform", "translate("+margin+","+(height + margin)+")")
+                .call(d3.axisBottom(xs));
     }
+    </script>
+
+    <script>
+        async function scene_two() {
+            
+        }
     </script>
         
 </body>
