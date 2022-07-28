@@ -85,7 +85,9 @@
         async function scene_two() {
             
             var height = 440;
-            var ys = d3.scaleLinear().domain([0,150]).range([height,0]);
+
+            var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
+                ys = d3.scaleLinear().domain([0,150]).range([height,0]);
             
             d3.select("body").append("p").text("Test");
 
@@ -94,7 +96,7 @@
                 .attr('r', 3)
                 .transition().duration(1000)
                     .attr('cy', function(d) {return ys(d.AverageHighwayMPG);});
-                    
+
             d3.select("body").append("p").text("Test2");
         }
 
