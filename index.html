@@ -55,7 +55,7 @@
                 ys = d3.scaleLog().domain([10,150]).range([height,0]),
                 rx = d3.scaleLinear().domain([0,40]);
 
-            var colour = d3.scaleOrdinal().domain([EngineCylinders]).range(['violet', 'indigo', 'blue', 'green', 'gold', 'orange', 'red', 'pink'])
+            var colour = d3.scaleOrdinal().domain(['0','2','3','4','6','8','10','12']).range(['violet', 'indigo', 'blue', 'green', 'gold', 'orange', 'red', 'pink'])
    
             d3.select('svg')
                 .attr("width", width + 2 * margin)
