@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(224, 10, 213)}
+    .button1 {background-color: rgb(10, 224, 28)}
     .button2 {background-color: rgb(10, 210, 224)}
 
 </style>
@@ -96,7 +96,7 @@
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
                 .attr("x", margin * 2)
-                .attr("y", height - margin)
+                .attr("y", height - margin* 2)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon")
         }
