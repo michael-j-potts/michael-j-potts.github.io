@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(71, 224, 10)}
+    .button1 {background-color: rgb(10, 181, 224)}
 </style>
 <body onload='init()'>
     
@@ -85,7 +85,7 @@
         function scene_two() {
             d3.select("svg").selectAll("circle").data(data).join("circle")
                 .transition()
-                .attr('cy', function(d) {return xs(d.AverageHighwayMPG);});
+                .attr('cy', function(d) {return ys(d.AverageHighwayMPG);});
 
             d3.select("svg").select(".y.axis")
                 .attr("transform", "translate("+margin+","+margin+")")
