@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(224, 10, 213)}
+    .button1 {background-color: rgb(78, 224, 10)}
 </style>
 <body onload='init()'>
     
@@ -83,6 +83,8 @@
         }
 
         async function scene_two() {
+            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+            
             var width = 820,
                 height = 440;
 
