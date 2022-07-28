@@ -146,9 +146,9 @@
 
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
-                .attr('cx', function(d) {return xs(d.EngineCylinders);})
                 .attr('r', 3)
                 .transition().duration(750)
+                    .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
         }
 
