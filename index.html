@@ -21,7 +21,7 @@
                 <div class="title col-sm-8">
                     <h1>Visual Narrative Project</h1>
                     <h2>Fuel Efficiency based on vehicle engine cylinders</h2>
-                    <p class="authors" style="font-size: 8px">
+                    <p class="authors" style="font-size: 10px">
                     Michael Potts - July 31st, 2022
                     </p>
                 </div>
@@ -54,7 +54,7 @@
                 margin = 50;
 
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
-                ys = d3.scaleLinear().domain([10,150]).range([height,0]);
+                ys = d3.scaleLinear().domain([0,150]).range([height,0]);
 
             var colour = d3.scaleOrdinal().range(d3.schemeCategory10);
    
@@ -73,12 +73,12 @@
 
             d3.select("svg").append("g")
                 .attr("transform","translate("+margin+","+margin+")")
-                .call(d3.axisLeft(ys)
+                .call(d3.axisLeft(ys).tickValues([0,25,50,75,100,125,150])
                 );
 
             d3.select("svg").append("g")
                 .attr("transform","translate("+margin+","+(height + margin)+")")
-                .call(d3.axisBottom(xs).tickValues([0,2,3,4,6,8,10,12])
+                .call(d3.axisBottom(xs).tickValues([0,2,4,6,8,10,12])
                 );
         }
 
