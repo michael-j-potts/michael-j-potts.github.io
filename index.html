@@ -155,7 +155,7 @@
             d3.select("svg").select(".x.axis")
                 .attr("transform", "translate("+margin+","+margin+")")
                 .transition()
-                .call(d3.axisBottom(ys));
+                .call(d3.axisBottom(xs));
         }
 
         async function transition_two() {
