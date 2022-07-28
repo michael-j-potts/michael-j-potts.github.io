@@ -86,7 +86,7 @@
             var height = 440;
             var ys = d3.scaleLinear().domain([0,150]).range([height,0]);
 
-            d3.select('svg').selectAll('circle').data(data).append('circle')
+            d3.select('svg').selectAll('circle')
                 .transition().duration(1000)
                     .attr('cx', function(d) {return xs(d.EngineCylinders);})
                     .attr('cy', function(d) {return ys(d.AverageHighwayMPG);})
