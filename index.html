@@ -86,14 +86,14 @@
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
                 .attr("x", width/2 + margin)
-                .attr("y", height + margin + 20)
+                .attr("y", height + margin )
                 .text("Engine Cylinders")
 
                 d3.select("svg").append("text")
                 .attr("text-anchor", "end")
                 .attr("transform", "rotate(-90)")
-                .attr("x", -margin)
-                .attr("y", -margin - height/2 + 20)
+                .attr("x", margin)
+                .attr("y", margin - height/2 + 20)
                 .text("Log miles per gallon")
         }
 
@@ -120,7 +120,6 @@
             btn.innerHTML = "Next scene";
             document.body.appendChild(btn);
             scene_two();
-            
         }
     
     </script>
