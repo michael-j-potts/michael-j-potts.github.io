@@ -94,7 +94,10 @@
         }
 
         async function transition_one() {
+            d3.select("body").append("p").text("Test");
             scene_two();
+            d3.select("body").append("p").text("Test2");
+
         }
     
     </script>
