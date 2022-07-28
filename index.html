@@ -128,7 +128,7 @@
             let btn = document.createElement("button");
             btn.innerHTML = "Next scene";
             btn.id = 'button2';
-            btn.class = 'button button1'
+            btn.setAttribute("class", "button button1")
             btn.onclick = transition_two();
             document.body.appendChild(btn);
 
@@ -136,7 +136,6 @@
         }
 
         async function scene_three() {
-            d3.select("body").append("p").text("Test");
             //load our data
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
@@ -146,16 +145,12 @@
             var xs = d3.scaleLinear().domain([2,6]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
-
-            d3.select("body").append("p").text("Test2");
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('r', 3)
                 .transition().duration(750)
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
-
-            d3.select("body").append("p").text("Test3");
 
             d3.select("svg").select(".x.axis")
                 .attr("transform", "translate("+margin+","+margin+")")
@@ -167,8 +162,6 @@
             scene_three();
         }
     
-    </script>
-        
-        
+    </script>      
 </body>
 </html>
