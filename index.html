@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(14, 10, 224)}
+    .button1 {background-color: rgb(60, 224, 10)}
 </style>
 <body onload='init()'>
     
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <svg width=500 height=500></svg>
+    <svg width=920 height=540></svg>
 
     <button class="button button1" onclick="scene_two()">Next scene</button>
 
@@ -46,8 +46,8 @@
         async function init() {
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
-            var width = 400,
-                height = 400,
+            var width = 820,
+                height = 440,
                 margin = 50;
 
             var xs = d3.scaleLog().domain([10,150]).range([0,width]),
