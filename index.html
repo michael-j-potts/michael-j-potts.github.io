@@ -20,8 +20,8 @@
             <div class="container">
                 <div class="title col-sm-8">
                     <h1>Visual Narrative Project</h1>
-                    <h2>Title</h2>
-                    <p class="authors">
+                    <h2>Fuel Efficiency based on vehicle engine cylinders</h2>
+                    <p class="authors" style="font-size: 8px">
                     Michael Potts - July 31st, 2022
                     </p>
                 </div>
@@ -34,13 +34,16 @@
     <!-- Intro -->
     <div class="full-width section-intro">
         <div class="container">
-            <p>This is the intro for my narrative visualization project</p>
+            <p>
+            Vehicles can be created in a variety of ways, but one common theme is, the more power a vehicle needs, the less fuel efficient
+            it usually is.
+        </p>
         </div>
     </div>
 
     <svg width=920 height=540></svg>
 
-    <button class="button button1" onclick="scene_two()">Next scene</button>
+    <button class="button button1" onclick="transition_one()">Next scene</button>
 
     <script>
         async function init() {
@@ -50,9 +53,8 @@
                 height = 440,
                 margin = 50;
 
-            var xs = d3.scaleLog().domain([10,150]).range([0,width]),
-                ys = d3.scaleLog().domain([10,150]).range([height,0]),
-                rx = d3.scaleLinear().domain([0,40]);
+            var xs = d3.scaleLinear().domain([0,12]).range([0,width]),
+                ys = d3.scaleLinear().domain([10,150]).range([height,0]);
 
             var colour = d3.scaleOrdinal().range(d3.schemeCategory10);
    
@@ -64,8 +66,8 @@
                 .data(data)
                 .enter()
                 .append('circle')
-                    .attr('cx', function(d) {return xs(d.AverageCityMPG);})
-                    .attr('cy', function(d) {return ys(d.AverageHighwayMPG);})
+                    .attr('cx', function(d) {return xs(d.EngineCylinders);})
+                    .attr('cy', function(d) {return ys(d.AverageCityMPG);})
                     .attr('r', 3)
                     .style('fill', function(d) {return colour(d.EngineCylinders);});
 
@@ -79,20 +81,10 @@
             d3.select("svg").append("g")
                 .attr("transform","translate("+margin+","+(height + margin)+")")
                 .call(d3.axisBottom(xs)
-                .tickValues([10,20,50,100])
-                .tickFormat(d3.format("~s"))
                 );
         }
 
-        function scene_two_update_data() {
-            data = [];
-            for(let i=0; i < 6; i++) {
-                data.push(Math.random() * 800);
-            }
-            maximum = Math.max.apply(Math, data);
-        }
-
-        function update() {
+        function scene_two() {
             var xs = d3.scaleBand().domain([0,1,2,3,4,5]).range([0, 200]),
                 ys = d3.scaleLinear().domain([0,maximum]).range([200,0]);
 
@@ -110,9 +102,8 @@
                 .call(d3.axisLeft(ys));
         }
 
-        async function scene_two() {
-            scene_two_update_data();
-            update();
+        async function transition_one() {
+            scene_two();
         }
     
     </script>
