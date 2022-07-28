@@ -82,6 +82,19 @@
                 .attr("transform","translate("+margin+","+(height + margin)+")")
                 .call(d3.axisBottom(xs).tickValues([0,2,4,6,8,10,12])
                 );
+
+            d3.select("svg").append("text")
+                .attr("text-anchor", "end")
+                .attr("x", width/2 + margin)
+                .attr("y", height + margin + 20)
+                .text("Engine Cylinders")
+
+                d3.select("svg").append("text")
+                .attr("text-anchor", "end")
+                .attr("transform", "rotate(-90)")
+                .attr("x", -margin)
+                .attr("y", -margin - height/2 + 20)
+                .text("Log miles per gallon")
         }
 
         async function scene_two() {
