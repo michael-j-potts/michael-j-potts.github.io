@@ -30,9 +30,7 @@
                 </div>
             </div>
         </div>
-    </div>
-  
-    <!-- Intro -->
+    </div>.attr("class", "y axis")
     <div class="full-width section-intro">
         <div class="container">
             <p id="explanation">
@@ -77,13 +75,13 @@
             //Add in our X and Y axis
             d3.select("svg").append("g")
                 .attr("transform","translate("+margin+","+margin+")")
-                .attr("class", "y axis")
-                .call(d3.axisLeft(ys).tickValues([2,3,4,5,6])
+                .attr("class", "yaxis")
+                .call(d3.axisLeft(ys)
                 );
 
             d3.select("svg").append("g")
                 .attr("transform","translate("+margin+","+(height + margin)+")")
-                .attr("class", "x axis")
+                .attr("class", "xaxis")
                 .call(d3.axisBottom(xs).tickValues([0,2,4,6,8,10,12])
                 );
             
@@ -160,10 +158,10 @@
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
-            d3.select("svg").select(".x.axis")
+            d3.select("svg").select(".xaxis")
                 .attr("transform", "translate("+margin+","+margin+")")
                 .transition()
-                .call(d3.axisBottom(xs).tickValues([2,3,4,5,6]));
+                .call(d3.axisBottom(xs));
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
