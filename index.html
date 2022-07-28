@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(78, 224, 10)}
+    .button1 {background-color: rgb(10, 217, 224)}
 </style>
 <body onload='init()'>
     
@@ -54,7 +54,7 @@
                 margin = 50;
 
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
-                ys = d3.scaleLog().domain([0,150]).range([height,0]);
+                ys = d3.scaleLinear().domain([0,10]).range([height,0]);
 
             var colour = d3.scaleOrdinal().range(d3.schemeCategory10);
    
@@ -67,7 +67,7 @@
                 .enter()
                 .append('circle')
                     .attr('cx', function(d) {return xs(d.EngineCylinders);})
-                    .attr('cy', function(d) {return ys(d.AverageCityMPG);})
+                    .attr('cy', function(d) {return ys(Math.log(d.AverageCityMPG));})
                     .attr('r', 4)
                     .style('fill', function(d) {return colour(d.EngineCylinders);});
 
@@ -89,13 +89,13 @@
                 height = 440;
 
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
-                ys = d3.scaleLog().domain([0,150]).range([height,0]);
+                ys = d3.scaleLinear().domain([0,10]).range([height,0]);
 
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
                 .attr('r', 4)
                 .transition().duration(750)
-                    .attr('cy', function(d) {return ys(d.AverageHighwayMPG);});
+                    .attr('cy', function(d) {return ys(math.log(d.AverageHighwayMPG));});
         }
 
         async function transition_one() {
