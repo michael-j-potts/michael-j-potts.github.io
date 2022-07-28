@@ -95,8 +95,8 @@
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
-                .attr("x", -margin * 5)
-                .attr("y", 40)
+                .attr("x", -height/2 + margin)
+                .attr("y", 10)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon")
         }
@@ -127,6 +127,8 @@
             //implement our second button to allow reaching the third transition
             let btn = document.createElement("button");
             btn.innerHTML = "Next scene";
+            btn.id = 'button2';
+            btn.onclick = transition_two();
             document.body.appendChild(btn);
 
             scene_two();
