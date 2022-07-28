@@ -35,7 +35,7 @@
     <!-- Intro -->
     <div class="full-width section-intro">
         <div class="container">
-            <p>
+            <p id="explanation">
             Vehicles can be created in a variety of ways, but one common theme is, the more power a vehicle needs, the less fuel efficient
             it usually is.
         </p>
@@ -122,7 +122,6 @@
                 .attr("x", -height/2 + margin)
                 .attr("y", 10)
                 .attr("transform", "rotate(-90)")
-                .transition()
                 .text("Log miles per gallon - Highway")
         }
 
@@ -168,7 +167,6 @@
                 .attr("text-anchor", "end")
                 .attr("x", width/2 + margin*2.5)
                 .attr("y", height + margin + 40)
-                .transition()
                 .text("Log miles per gallon - City")
         }
 
