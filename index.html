@@ -89,14 +89,14 @@
             //Add in our axis names
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
-                .attr("x", width/2 + margin)
+                .attr("x", width/2 + margin*2)
                 .attr("y", height + margin + 40)
                 .text("Engine Cylinders")
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
                 .attr("transform", "rotate(-90)")
-                .attr("x", margin + 50)
+                .attr("x", -margin * 2)
                 .attr("y", -margin - height/2 + 20)
                 .text("Log miles per gallon")
         }
@@ -120,11 +120,15 @@
         }
 
         async function transition_one() {
+            //remove our first button
             var elem = document.getElementById('button1');
             elem.parentNode.removeChild(elem);
+
+            //implement our second button to allow reaching the third transition
             let btn = document.createElement("button");
             btn.innerHTML = "Next scene";
             document.body.appendChild(btn);
+
             scene_two();
         }
 
@@ -147,11 +151,6 @@
         }
 
         async function transition_two() {
-            var elem = document.getElementById('button1');
-            elem.parentNode.removeChild(elem);
-            let btn = document.createElement("button");
-            btn.innerHTML = "Next scene";
-            document.body.appendChild(btn);
             scene_three();
         }
     
