@@ -128,15 +128,7 @@
         }
 
         async function transition_one() {
-            //remove our first button
-            var elem = document.getElementById('button1');
-            elem.parentNode.removeChild(elem);
-
-            //implement our second button to allow reaching the third transition
-            let btn = document.createElement("button");
-            btn.innerHTML = "Next scene";
-            btn.id = 'button2';
-            btn.setAttribute("class", "button button1")
+            let btn = document.getElementById('button1');
             btn.setAttribute("onclick", "transition_two()");
             document.body.appendChild(btn);
 
