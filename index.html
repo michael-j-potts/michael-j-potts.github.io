@@ -219,11 +219,16 @@
             var width = 820,
                 height = 440;
 
-            var xs = d3.scaleLinear().domain([-1,Xlim]).range([0,width]);
+            var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
+
+            d3.select('svg').select('.Yaxis')
+                .transition().duration(1000)
+                .call(d3.axisLeft(ys));
         }
 
         async function updatePlot_two() {
@@ -232,12 +237,17 @@
 
             var width = 820,
                 height = 440;
-
-            var xs = d3.scaleLinear().domain([-1,Xlim]).range([0,width]);
+            
+                var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
+
+            d3.select('svg').select('.Yaxis')
+                .transition().duration(1000)
+                .call(d3.axisLeft(ys));
         }
 
         async function updatePlot_three() {
@@ -264,7 +274,7 @@
 
             d3.select('svg').select('.Yaxis')
                 .transition().duration(1000)
-                .call(d3.axisBottom(ys));
+                .call(d3.axisLeft(ys));
         }
     </script>      
 </body>
