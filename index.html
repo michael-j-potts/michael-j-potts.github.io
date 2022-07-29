@@ -116,11 +116,11 @@
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
                 .attr('r', 3)
-                .transition().duration(2000)
+                .transition().duration(1400)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
 
-            d3.select("svg").append("text")
+            d3.select("svg").select("text")
                 .attr("text-anchor", "end")
                 .attr("x", -height/2 + margin)
                 .attr("y", 15)
@@ -154,18 +154,17 @@
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('r', 3)
-                .transition().duration(750)
+                .transition().duration(1400)
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
-            
 
             //update our axis
             d3.select('svg').select('.Xaxis')
-                .transition().duration(2000)
+                .transition().duration(1400)
                 .call(d3.axisBottom(xs));
 
             d3.select('svg').select('.Yaxis')
-                .transition().duration(2000)
+                .transition().duration(1400)
                 .call(d3.axisLeft(ys));
         }
 
