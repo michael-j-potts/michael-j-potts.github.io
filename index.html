@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 25, 182)}
+    .button1 {background-color: rgb(37, 182, 8)}
 
 </style>
 <body onload='init()'>
@@ -153,7 +153,7 @@
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
             
             //update our axis
-            d3.select("svg").select(".x.axis")
+            d3.select("svg").select("g.x.axis")
                 .attr("transform", "translate("+margin+","+margin+")")
                 .transition()
                 .call(d3.axisBottom(xs));
