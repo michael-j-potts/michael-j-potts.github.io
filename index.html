@@ -107,7 +107,8 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
-
+            d3.getElementById('buttonXlim').on("input", updatePlot());
+            //d3.select('buttonYlim').on("input", updatePlot())
             
         }
 
@@ -267,9 +268,6 @@
                 .attr('cx', function(d) {return xs(d.EngineCylinders)})
                 .attr('cy', function(d) {return ys(d.AverageCityMPG)})
         }
-
-        d3.select('.buttonXlim').on("input", updatePlot())
-        d3.select('.buttonYlim').on("input", updatePlot())
     </script>      
 </body>
 </html>
