@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(212, 22, 202)}
+    .button1 {background-color: rgb(98, 212, 22)}
 
 </style>
 <body onload='init()'>
@@ -134,7 +134,7 @@
                 },
                 x: 115,
                 y: 120,
-                dx: 500,
+                dx: 700,
                 dy: 0,
             }];
 
@@ -191,6 +191,8 @@
         }
 
         async function transition_one() {
+            //remove any annotations
+            d3.select('svg').select('#scene_one_ann').remove()
             //update our button
             let btn = document.getElementById('button1');
             btn.setAttribute("onclick", "transition_two()");
