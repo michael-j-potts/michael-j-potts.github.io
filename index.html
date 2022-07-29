@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(212, 22, 171)}
+    .button1 {background-color: rgb(212, 136, 22)}
 
 </style>
 <body onload='init()'>
@@ -132,7 +132,8 @@
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
             var width = 820,
-                height = 440;
+                height = 440,
+                margin = 50;
 
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
@@ -184,7 +185,8 @@
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
             var width = 820,
-                height = 440;
+                height = 440
+                margin = 50;
 
             var xs = d3.scaleLinear().domain([2,5.5]).range([0,width]),
                 ys = d3.scaleLinear().domain([2.5,5.5]).range([height,0]);
