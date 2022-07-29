@@ -44,12 +44,14 @@
     <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
 
     <script>
+
+        await d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
         async function init() {
             //Load our data and set initial variables
             d3.select('#explanation')
                 .text("Vehicles can be created in a variety of ways, but one common theme is, the more power a vehicle needs, the less fuel efficient it usually is.")
             
-            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+            
 
             var width = 820,
                 height = 440,
@@ -103,8 +105,6 @@
         }
 
         async function scene_two() {
-            //load our data
-            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
             var width = 820,
                 height = 440;
@@ -141,8 +141,6 @@
         }
 
         async function scene_three() {
-            //load our data
-            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
             var width = 820,
                 height = 440;
@@ -198,6 +196,7 @@
             init();
         }
     
+    })
     </script>      
 </body>
 </html>
