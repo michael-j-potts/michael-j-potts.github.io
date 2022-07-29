@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(37, 182, 8)}
+    .button1 {background-color: rgb(11, 8, 182)}
 
 </style>
 <body onload='init()'>
@@ -178,7 +178,7 @@
             btn.innerHTML = "Next scene";
             btn.setAttribute("onclick", "transition_one()");
 
-            d3.select('svg').remove();
+            d3.select('svg').selectAll('circle').remove();
             init();
         }
     
