@@ -43,7 +43,6 @@
     <svg width=920 height=540></svg>
 
     <input type="number" id='buttonXlim' value=12>
-    <input type="number" id='buttonYlim' value=6>
 
     <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
 
@@ -247,16 +246,21 @@
         }
         
         function updatePlot() {
+            d3.select("body").append("p").text("Test1");
             xlim = this.value;
             
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
+
+            d3.select("body").append("p").text("Test2");
 
             xs.domain([-1, xlim])
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
+
+            d3.select("body").append("p").text("Test3");
 
             d3.select('svg').selectAll('circle')
                 .data(data)
@@ -267,7 +271,6 @@
         }
         
         d3.select('#buttonXlim').on("input", updatePlot());
-        document.getElementById('.buttonXlim').on("input", updatePlot());
         
     </script>      
 </body>
