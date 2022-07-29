@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 182, 168)}
+    .button1 {background-color: rgb(8, 49, 182)}
 
 </style>
 <body onload='init()'>
@@ -105,8 +105,6 @@
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
-
-            d3.select('#buttonXlim').on("input", updatePlot());
             
         }
 
@@ -225,6 +223,8 @@
                 .attr('cx', function(d) {return xs(d.EngineCylinders)})
                 .attr('cy', function(d) {return ys(d.AverageCityMPG)})
         }
+        
+        d3.select('#buttonXlim').on("input", updatePlot());
         
     </script>      
 </body>
