@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(182, 8, 173)}
+    .button1 {background-color: rgb(8, 118, 182)}
 
 </style>
 <body onload='init()'>
@@ -41,14 +41,22 @@
     </div>
 
     <svg width=920 height=540></svg>
-    <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
 
     <div class="full-width section-intro">
-        <label for="buttonXlim">X axis</label>
-        <input type="number" id='buttonXlim' value=12>
-        <label for="buttonYlim">Y axis</label>
-        <input type="number" id='buttonYlim' value=6>
+        <label for="buttonXmin">X minimum</label>
+        <input type="number" id='buttonXmin' value=-1>
+        <label for="buttonYmin">Y minimum</label>
+        <input type="number" id='buttonYmin' value=2>
     </div>
+
+    <div class="full-width section-intro">
+        <label for="buttonXmax">X maximum</label>
+        <input type="number" id='buttonXmax' value=12>
+        <label for="buttonYmax">Y maximum</label>
+        <input type="number" id='buttonYmax' value=6>
+    </div>
+
+    <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
 
     <script>
         async function init() {
@@ -215,14 +223,16 @@
    
         async function updatePlot_one() {
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
-            var Xlim = document.getElementById("buttonXlim").value,
-                Ylim = document.getElementById("buttonYlim").value;
+            var Xmin = document.getElementById("buttonXmin").value,
+                Ymin = document.getElementById("buttonYmin").value;
+                Xmax = document.getElementById("buttonXmax").value,
+                Ymax = document.getElementById("buttonYmax").value;
 
             var width = 820,
                 height = 440;
 
-            var xs = d3.scaleLinear().domain([-1,Xlim]).range([0,width]),
-                ys = d3.scaleLinear().domain([2,Ylim]).range([height,0]);
+            var xs = d3.scaleLinear().domain([Xmin,Xmax]).range([0,width]),
+                ys = d3.scaleLinear().domain([Ymin,Ymax]).range([height,0]);
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
@@ -241,14 +251,16 @@
 
         async function updatePlot_two() {
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
-            var Xlim = document.getElementById("buttonXlim").value,
-                Ylim = document.getElementById("buttonYlim").value;
+            var Xmin = document.getElementById("buttonXmin").value,
+                Ymin = document.getElementById("buttonYmin").value;
+                Xmax = document.getElementById("buttonXmax").value,
+                Ymax = document.getElementById("buttonYmax").value;
 
             var width = 820,
                 height = 440;
-            
-            var xs = d3.scaleLinear().domain([-1,Xlim]).range([0,width]),
-                ys = d3.scaleLinear().domain([2,Ylim]).range([height,0]);
+
+            var xs = d3.scaleLinear().domain([Xmin,Xmax]).range([0,width]),
+                ys = d3.scaleLinear().domain([Ymin,Ymax]).range([height,0]);
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
@@ -267,15 +279,16 @@
 
         async function updatePlot_three() {
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
-
-            var Xlim = document.getElementById("buttonXlim").value,
-                Ylim = document.getElementById("buttonYlim").value;
+            var Xmin = document.getElementById("buttonXmin").value,
+                Ymin = document.getElementById("buttonYmin").value;
+                Xmax = document.getElementById("buttonXmax").value,
+                Ymax = document.getElementById("buttonYmax").value;
 
             var width = 820,
                 height = 440;
 
-            var xs = d3.scaleLinear().domain([2,Xlim]).range([0,width]),
-                ys = d3.scaleLinear().domain([2.5,Ylim]).range([height,0]);
+            var xs = d3.scaleLinear().domain([Xmin,Xmax]).range([0,width]),
+                ys = d3.scaleLinear().domain([Ymin,Ymax]).range([height,0]);
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
