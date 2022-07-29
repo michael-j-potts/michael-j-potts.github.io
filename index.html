@@ -106,6 +106,12 @@
             //load our data
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
+            var width = 820,
+                height = 440;
+
+            var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,6]).range([height,0]);
+
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
@@ -137,6 +143,12 @@
         async function scene_three() {
             //load our data
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+
+            var width = 820,
+                height = 440;
+
+            var xs = d3.scaleLinear().domain([2,6]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
