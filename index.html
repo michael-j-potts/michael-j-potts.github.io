@@ -217,7 +217,6 @@
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
 
-
             d3.select("body").append("p").text(test);
 
             d3.select("body").append("p").text("Test3");
@@ -226,8 +225,8 @@
                 .data(data)
                 .transition()
                 .duration(1000)
-                .attr('cx', function(d) {return xs(d.EngineCylinders)})
-                .attr('cy', function(d) {return ys(d.AverageCityMPG)});
+                .attr('cx', function(d) {return xs(d.EngineCylinders);})
+                .attr('cy', function(d) {return ys(d.AverageCityMPG);});
         }
         
         d3.select('#buttonXlim').on("input", updatePlot());
