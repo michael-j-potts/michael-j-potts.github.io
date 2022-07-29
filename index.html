@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 49, 182)}
+    .button1 {background-color: rgb(176, 8, 182)}
 
 </style>
 <body onload='init()'>
@@ -207,9 +207,14 @@
             
             var xs = d3.scaleLinear().domain([-1,test]).range([0,width]);
 
+            d3.select("body").append("p").text(test);
+
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
+
+
+            d3.select("body").append("p").text(test);
 
             d3.select("body").append("p").text("Test3");
 
@@ -218,7 +223,7 @@
                 .transition()
                 .duration(1000)
                 .attr('cx', function(d) {return xs(d.EngineCylinders)})
-                .attr('cy', function(d) {return ys(d.AverageCityMPG)})
+                .attr('cy', function(d) {return ys(d.AverageCityMPG)});
         }
         
         d3.select('#buttonXlim').on("input", updatePlot());
