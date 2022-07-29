@@ -158,6 +158,8 @@
                 .transition()
                 .call(d3.axisBottom(xs));
 
+            d3.select("body").append("p").text("test");
+
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
                 .attr("x", width/2 + margin*2.5)
