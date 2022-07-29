@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(212, 199, 22)}
+    .button1 {background-color: rgb(98, 212, 22)}
 
 </style>
 <body onload='init()'>
@@ -120,8 +120,6 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
-            
-
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_one);
             d3.select('#buttonYmin').on("input", updatePlot_one);
@@ -219,9 +217,9 @@
                     label:"We can see electric vehicles once again at the top of the range.",
                     title:"Electric Vehicles"
                 },
-                x: 730,
-                y: 370,
-                dx: -50,
+                x: 530,
+                y: 400,
+                dx: -140,
                 dy: -30,
                 subject: {
                     radaius: 40,
