@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 182, 182)}
+    .button1 {background-color: rgb(8, 182, 17)}
 
 </style>
 <body onload='init()'>
@@ -43,6 +43,7 @@
     <svg width=920 height=540></svg>
 
     <input type="number" id='buttonXlim' value=12>
+    <input type="number" id='buttonYlim' value=6>
 
     <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
 
@@ -105,6 +106,8 @@
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
+
+            d3.select('#buttonXlim').on("input", updatePlot_one);
             
         }
 
@@ -132,6 +135,9 @@
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
+
+
+            d3.select('#buttonXlim').on("input", updatePlot_two);
         }
 
         async function transition_one() {
@@ -172,6 +178,8 @@
             d3.select('svg').select('.Yaxis')
                 .transition().duration(1000)
                 .call(d3.axisLeft(ys));
+
+            d3.select('#buttonXlim').on("input", updatePlot_three);
         }
 
         async function transition_two() {
@@ -201,7 +209,7 @@
             init();
         }
    
-        async function updatePlot() {
+        async function updatePlot_one() {
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
             var test = document.getElementById("buttonXlim").value;
 
@@ -213,10 +221,35 @@
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
-
         }
 
-        d3.select('#buttonXlim').on("input", updatePlot);
+        async function updatePlot_two() {
+            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+            var test = document.getElementById("buttonXlim").value;
+
+            var width = 820,
+                height = 440;
+
+            var xs = d3.scaleLinear().domain([-1,test]).range([0,width]);
+
+            d3.select('svg').select('.Xaxis')
+                .transition().duration(1000)
+                .call(d3.axisBottom(xs));
+        }
+
+        async function updatePlot_three() {
+            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+            var test = document.getElementById("buttonXlim").value;
+
+            var width = 820,
+                height = 440;
+
+            var xs = d3.scaleLinear().domain([-1,test]).range([0,width]);
+
+            d3.select('svg').select('.Xaxis')
+                .transition().duration(1000)
+                .call(d3.axisBottom(xs));
+        }
     </script>      
 </body>
 </html>
