@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(193, 212, 22)}
+    .button1 {background-color: rgb(22, 212, 32)}
 
 </style>
 <body onload='init()'>
@@ -204,20 +204,13 @@
                 .transition().duration(1000)
                 .call(d3.axisLeft(ys));
 
-            //d3.select('svg').select('#').remove();
+            d3.select('svg').select('#EngineCylinders').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
                 .attr("x", width/2 + margin*2.5)
                 .attr("y", height + margin + 40)
                 .text("Log miles per gallon - City");
-
-            d3.select("svg").append("text")
-                .attr("text-anchor", "end")
-                .attr("x", -height/2 + margin)
-                .attr("y", 15)
-                .attr("transform", "rotate(-90)")
-                .text("Log miles per gallon - Highway");
 
             //annotations
             const scene_three_ann = d3.annotationsCalloutCircle
