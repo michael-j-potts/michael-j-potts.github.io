@@ -236,8 +236,8 @@
             d3.select('svg').selectAll('circle')
                 .data(data)
                 .transition().duration(1000)
-                .attr('cx', function(d) {return xs(Math.log(d.EngineCylinders));})
-                .attr('cy', function(d) {return ys(Math.log(d.AverageCityMPG));});
+                .attr('cx', function(d) {return xs(d.EngineCylinders);})
+                .attr('cy', function(d) {return ys(d.AverageCityMPG);});
 
             
         }
@@ -250,7 +250,7 @@
             var width = 820,
                 height = 440;
             
-                var xs = d3.scaleLinear().domain([-1,Xlim]).range([0,width]),
+            var xs = d3.scaleLinear().domain([-1,Xlim]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,Ylim]).range([height,0]);
 
             d3.select('svg').select('.Xaxis')
@@ -264,8 +264,8 @@
             d3.select('svg').selectAll('circle')
                 .data(data)
                 .transition().duration(1000)
-                .attr('cx', function(d) {return xs(Math.log(d.EngineCylinders));})
-                .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
+                .attr('cx', function(d) {return xs(d.EngineCylinders);})
+                .attr('cy', function(d) {return ys(d.AverageHighwayMPG);});
         }
 
         async function updatePlot_three() {
