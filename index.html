@@ -203,7 +203,7 @@
 
         
         async function updatePlot() {
-            var data = await d3.csv("https://flunky.github.io/cars2017.csv")
+            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
             var test = document.getElementById("buttonXlim").value;
 
             d3.select("body").append("p").text(test);
