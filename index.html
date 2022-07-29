@@ -204,11 +204,11 @@
         
         async function updatePlot() {
             xlim = this.value;
-            
+            d3.select("body").append("p").text("Test2");
             var xs = d3.scaleLinear().domain([-1,xlim]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
-            d3.select("body").append("p").text("Test2");
+            
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
