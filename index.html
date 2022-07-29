@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(22, 67, 212)}
+    .button1 {background-color: rgb(22, 183, 212)}
 
 </style>
 <body onload='init()'>
@@ -142,7 +142,7 @@
                 .transition().duration(1000)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
-            d3.select('svg').select('text').remove();
+            d3.select('svg').selectAll('text').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
@@ -203,7 +203,7 @@
                 .transition().duration(1000)
                 .call(d3.axisLeft(ys));
 
-            d3.select('svg').select('text').remove();
+            d3.select('svg').selectAll('text').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
