@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(182, 43, 8)}
+    .button1 {background-color: rgb(179, 182, 8)}
 
 </style>
 <body onload='init()'>
@@ -107,8 +107,8 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
-            d3.getElementById('buttonXlim').on("input", updatePlot());
-            d3.select('buttonxlim').on("input", updatePlot());
+            d3.getElementById('buttonXlim').on("input", updatePlot);
+            d3.select('#buttonXlim').on("input", updatePlot);
             
         }
 
