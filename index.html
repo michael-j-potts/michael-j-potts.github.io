@@ -128,9 +128,14 @@
         }
 
         async function transition_one() {
+            //update our button
             let btn = document.getElementById('button1');
             btn.setAttribute("onclick", "transition_two()");
             document.body.appendChild(btn);
+
+            //update our text
+            d3.select("#explanation")
+            .text("In this chart, we can observe Average Highway miles per gallon")
 
             scene_two();
         }
