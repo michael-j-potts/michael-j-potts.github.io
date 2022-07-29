@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 15px 32px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 182, 60)}
+    .button1 {background-color: rgb(8, 182, 173)}
 
 </style>
 <body onload='init()'>
@@ -165,6 +165,11 @@
         }
 
         async function transition_two() {
+            let btn = document.getElementById('button1');
+            btn.innerHTML = "Reset";
+            btn.setAttribute("onclick", "init()");
+            document.body.appendChild(btn);
+
             scene_three();
         }
     
