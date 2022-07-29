@@ -107,8 +107,8 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
-            d3.getElementById('buttonXlim').on("input", updatePlot);
-            d3.select('#buttonXlim').on("input", updatePlot);
+            document.getElementById('.buttonXlim').on("input", updatePlot());
+            d3.select('#buttonXlim').on("input", updatePlot());
             
         }
 
