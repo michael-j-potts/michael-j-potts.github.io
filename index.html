@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 118, 182)}
+    .button1 {background-color: rgb(8, 182, 37)}
 
 </style>
 <body onload='init()'>
@@ -118,8 +118,11 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
-            d3.select('#buttonXlim').on("input", updatePlot_one);
-            d3.select('#buttonYlim').on("input", updatePlot_one);
+            //set listeners for our 
+            d3.select('#buttonXmin').on("input", updatePlot_one);
+            d3.select('#buttonYmin').on("input", updatePlot_one);
+            d3.select('#buttonXmax').on("input", updatePlot_one);
+            d3.select('#buttonYmax').on("input", updatePlot_one);
             
         }
 
@@ -147,8 +150,10 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
 
-            d3.select('#buttonXlim').on("input", updatePlot_two);
-            d3.select('#buttonYlim').on("input", updatePlot_two);
+            d3.select('#buttonXmin').on("input", updatePlot_two);
+            d3.select('#buttonYmin').on("input", updatePlot_two);
+            d3.select('#buttonXmax').on("input", updatePlot_two);
+            d3.select('#buttonYmax').on("input", updatePlot_two);
         }
 
         async function transition_one() {
@@ -190,8 +195,10 @@
                 .transition().duration(1000)
                 .call(d3.axisLeft(ys));
 
-            d3.select('#buttonXlim').on("input", updatePlot_three);
-            d3.select('#buttonYlim').on("input", updatePlot_three);
+            d3.select('#buttonXmin').on("input", updatePlot_three);
+            d3.select('#buttonYmin').on("input", updatePlot_three);
+            d3.select('#buttonXmax').on("input", updatePlot_three);
+            d3.select('#buttonYmax').on("input", updatePlot_three);
         }
 
         async function transition_two() {
