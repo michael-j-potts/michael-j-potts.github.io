@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(176, 8, 182)}
+    .button1 {background-color: rgb(182, 34, 8)}
 
 </style>
 <body onload='init()'>
@@ -116,15 +116,11 @@
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
                 .attr('r', 3)
-                .transition().duration(2000)
+                .transition().duration(200)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
 
             d3.select("svg").append("text")
-                .attr("text-anchor", "end")
-                .attr("x", -height/2 + margin)
-                .attr("y", 15)
-                .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
         }
 
@@ -148,13 +144,13 @@
             var width = 820,
                 height = 440;
 
-            var xs = d3.scaleLinear().domain([2,5.5]).range([0,width]),
-                ys = d3.scaleLinear().domain([2.5,5.5]).range([height,0]);
+            var xs = d3.scaleLinear().domain([2.5,5.5]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,5.5]).range([height,0]);
 
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('r', 3)
-                .transition().duration(2000)
+                .transition().duration(750)
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
             
@@ -169,9 +165,6 @@
                 .call(d3.axisLeft(ys));
 
             d3.select("svg").select("text")
-                .attr("text-anchor", "end")
-                .attr("x", width/2 + margin*2.5)
-                .attr("y", height + margin + 40)
                 .text("Log miles per gallon - City");
         }
 
