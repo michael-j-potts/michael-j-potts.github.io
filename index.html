@@ -120,6 +120,34 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
+            //annotations
+            const scene_one_ann = d3.annotationLabel
+            const annotations = [{
+                note: {
+                    label:"We can see a negative fuel efficiency slope as a vehicles # of cylinders increase.",
+                    title:"Slope of vehicles by Engine Cylinder"
+                },
+                connector: {
+                    end: "dot",
+                    type: "curve",
+                    points: [[100,100],[210,230],[320,230],[430,230],[540,280],[650,330],[760,350]]
+                },
+                x: 820,
+                y: 400,
+                dx: -0,
+                dy: -80,
+            }];
+
+            const makeAnnotations = d3.annotation()
+                .type(scene_one_ann)
+                .annotations(annotations);
+            
+            d3.select("svg")
+                .append("g")
+                .attr("class", "annotation-group")
+                .attr("id", "scene_one_ann")
+                .call(makeAnnotations);
+
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_one);
             d3.select('#buttonYmin').on("input", updatePlot_one);
