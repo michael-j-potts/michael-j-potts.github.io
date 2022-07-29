@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 182, 81)}
+    .button1 {background-color: rgb(25, 8, 182)}
 
 </style>
 <body onload='init()'>
@@ -266,8 +266,8 @@
                 .attr('cy', function(d) {return ys(d.AverageCityMPG)})
         }
 
-        d3.select('#buttonXlim').on("input", updatePlot)
-        d3.select('#buttonYlim').on("input", updatePlot)
+        d3.select('#buttonXlim').on("input", updatePlot())
+        d3.select('#buttonYlim').on("input", updatePlot())
     </script>      
 </body>
 </html>
