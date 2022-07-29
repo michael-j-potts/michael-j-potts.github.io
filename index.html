@@ -207,22 +207,19 @@
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
             var test = document.getElementById("buttonXlim").value;
 
-            d3.select("body").append("p").text(test);
-
             var width = 820,
                 height = 440;
 
             var xs = d3.scaleLinear().domain([-1,test]).range([0,width]);
 
-            d3.select("body").append("p").text(test);
-
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
 
-            d3.select("body").append("p").text(test);
+            d3.select('#buttonXlim').on("input", updatePlot());
         }
 
+        d3.select('#buttonXlim').on("input", updatePlot());
     </script>      
 </body>
 </html>
