@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(212, 136, 22)}
+    .button1 {background-color: rgb(193, 212, 22)}
 
 </style>
 <body onload='init()'>
@@ -107,12 +107,14 @@
             //Add in our axis names
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
+                .attr("id", "EngineCylinders")
                 .attr("x", width/2 + margin*2.5)
                 .attr("y", height + margin + 40)
                 .text("Engine Cylinders");
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
+                .attr("id", "City")
                 .attr("x", -height/2 + margin)
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
@@ -145,16 +147,11 @@
                 .transition().duration(1000)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
-            //d3.select('svg').selectAll('Log miles per gallon - Highway').remove();
+            d3.select('svg').select('#City').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
-                .attr("x", width/2 + margin*2.5)
-                .attr("y", height + margin + 40)
-                .text("Engine Cylinders");
-
-            d3.select("svg").append("text")
-                .attr("text-anchor", "end")
+                .attr("id", "Highway")
                 .attr("x", -height/2 + margin)
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
@@ -190,8 +187,6 @@
 
             var xs = d3.scaleLinear().domain([2,5.5]).range([0,width]),
                 ys = d3.scaleLinear().domain([2.5,5.5]).range([height,0]);
-            
-            
 
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
@@ -209,7 +204,7 @@
                 .transition().duration(1000)
                 .call(d3.axisLeft(ys));
 
-            //d3.select('svg').selectAll('text').remove();
+            //d3.select('svg').select('#').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
