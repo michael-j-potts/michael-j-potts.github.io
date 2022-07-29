@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 20, 182)}
+    .button1 {background-color: rgb(182, 8, 173)}
 
 </style>
 <body onload='init()'>
@@ -131,14 +131,12 @@
                 .transition().duration(1000)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
-
             d3.select("svg").select("text")
                 .attr("text-anchor", "end")
                 .attr("x", -height/2 + margin)
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
-
 
             d3.select('#buttonXlim').on("input", updatePlot_two);
             d3.select('#buttonYlim').on("input", updatePlot_two);
@@ -237,9 +235,7 @@
                 .data(data)
                 .transition().duration(1000)
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
-                .attr('cy', function(d) {return ys(d.AverageCityMPG);});
-
-            
+                .attr('cy', function(d) {return ys(Math.log(d.AverageCityMPG));});
         }
 
         async function updatePlot_two() {
@@ -265,7 +261,7 @@
                 .data(data)
                 .transition().duration(1000)
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
-                .attr('cy', function(d) {return ys(d.AverageHighwayMPG);});
+                .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
         }
 
         async function updatePlot_three() {
@@ -294,6 +290,7 @@
                 .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                 .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
         }
+
     </script>      
 </body>
 </html>
