@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 25, 182)}
+    .button1 {background-color: rgb(182, 34, 8)}
 
 </style>
 <body onload='init()'>
@@ -77,7 +77,7 @@
             //Add in our X and Y axis
             d3.select("svg").append("g")
                 .attr("transform","translate("+margin+","+margin+")")
-                .attr("class", "y axis")
+                .attr("class", "Yaxis")
                 .call(d3.axisLeft(ys).tickValues([2,3,4,5,6])
                 );
 
@@ -116,15 +116,11 @@
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
                 .attr('r', 3)
-                .transition().duration(750)
+                .transition().duration(200)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
 
             d3.select("svg").append("text")
-                .attr("text-anchor", "end")
-                .attr("x", -height/2 + margin)
-                .attr("y", 10)
-                .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
         }
 
@@ -148,8 +144,8 @@
             var width = 820,
                 height = 440;
 
-            var xs = d3.scaleLinear().domain([2,6]).range([0,width]),
-                ys = d3.scaleLinear().domain([2,6]).range([height,0]);
+            var xs = d3.scaleLinear().domain([2.5,5.5]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,5.5]).range([height,0]);
 
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
@@ -160,14 +156,15 @@
             
 
             //update our axis
-            d3.select('svg').selectAll('.Xaxis')
-                .transition()
+            d3.select('svg').select('Xaxis')
+                .transition().duration(2000)
                 .call(d3.axisBottom(xs));
 
-            d3.select("svg").append("text")
-                .attr("text-anchor", "end")
-                .attr("x", width/2 + margin*2.5)
-                .attr("y", height + margin + 40)
+            d3.select('svg').select('Yaxis')
+                .transition().duration(2000)
+                .call(d3.axisLeft(ys));
+
+            d3.select("svg").select("text")
                 .text("Log miles per gallon - City");
         }
 
