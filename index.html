@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 182, 52)}
+    .button1 {background-color: rgb(176, 8, 182)}
 
 </style>
 <body onload='init()'>
@@ -121,6 +121,10 @@
 
 
             d3.select("svg").append("text")
+                .attr("text-anchor", "end")
+                .attr("x", -height/2 + margin)
+                .attr("y", 15)
+                .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
         }
 
@@ -165,6 +169,9 @@
                 .call(d3.axisLeft(ys));
 
             d3.select("svg").select("text")
+                .attr("text-anchor", "end")
+                .attr("x", width/2 + margin*2.5)
+                .attr("y", height + margin + 40)
                 .text("Log miles per gallon - City");
         }
 
