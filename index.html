@@ -203,7 +203,7 @@
 
         
         async function updatePlot() {
-            xlim = d3.select('#buttonXlim').value;
+            xlim = this.value;
             
             var xs = d3.scaleLinear().domain([-1,xlim]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
@@ -225,7 +225,7 @@
         }
         
         d3.select('#buttonXlim').on("input", updatePlot());
-        
+
     </script>      
 </body>
 </html>
