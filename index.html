@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(88, 22, 212)}
+    .button1 {background-color: rgb(180, 22, 212)}
 
 </style>
 <body onload='init()'>
@@ -214,16 +214,15 @@
 
             //annotations
             const scene_three_ann = d3.annotationCalloutCircle
-
             const annotations = [{
                 note: {
                     label:"We can see electric vehicles once again at the top of the range.",
                     title:"Electric Vehicles"
                 },
-                x: 4.5,
-                y: 4.5,
-                dx: 4,
-                dy: 5,
+                x: 800,
+                y: 400,
+                dx: 400,
+                dy: 300,
                 subject: {
                     radaius: 40,
                     radiusPadding: 5
