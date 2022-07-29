@@ -152,7 +152,7 @@
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
-            d3.select("svg").select(".xaxis")
+            d3.select("svg").select(".x.axis")
                 .attr("transform", "translate("+margin+","+margin+")")
                 .transition()
                 .call(d3.axisBottom(xs).tickValues([2,3,4,5,6]));
