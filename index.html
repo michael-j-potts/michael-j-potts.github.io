@@ -108,6 +108,7 @@
                 .text("Log miles per gallon - City");
 
             d3.select('#buttonXlim').on("input", updatePlot_one);
+            d3.select('#buttonYlim').on("input", updatePlot_one);
             
         }
 
@@ -138,6 +139,7 @@
 
 
             d3.select('#buttonXlim').on("input", updatePlot_two);
+            d3.select('#buttonYlim').on("input", updatePlot_two);
         }
 
         async function transition_one() {
@@ -180,6 +182,7 @@
                 .call(d3.axisLeft(ys));
 
             d3.select('#buttonXlim').on("input", updatePlot_three);
+            d3.select('#buttonYlim').on("input", updatePlot_three);
         }
 
         async function transition_two() {
