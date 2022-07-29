@@ -157,6 +157,8 @@
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
             
+
+            d3.select("body").append("p").text("test");
             //update our axis
             d3.select("svg").select("#x axis")
                 .attr("transform", "translate("+margin+","+margin+")")
