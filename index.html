@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(44, 212, 22)}
+    .button1 {background-color: rgb(212, 22, 171)}
 
 </style>
 <body onload='init()'>
@@ -118,6 +118,8 @@
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
 
+            
+
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_one);
             d3.select('#buttonYmin').on("input", updatePlot_one);
@@ -142,7 +144,7 @@
                 .transition().duration(1000)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
-            d3.select('svg').selectAll('Log miles per gallon - Highway').remove();
+            //d3.select('svg').selectAll('Log miles per gallon - Highway').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
@@ -186,6 +188,8 @@
 
             var xs = d3.scaleLinear().domain([2,5.5]).range([0,width]),
                 ys = d3.scaleLinear().domain([2.5,5.5]).range([height,0]);
+            
+            
 
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
@@ -203,7 +207,7 @@
                 .transition().duration(1000)
                 .call(d3.axisLeft(ys));
 
-            d3.select('svg').selectAll('text').remove();
+            //d3.select('svg').selectAll('text').remove();
 
             d3.select("svg").append("text")
                 .attr("text-anchor", "end")
@@ -217,6 +221,34 @@
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
+
+            //annotations
+            const scene_three_ann = d3.annotationsCalloutCircle
+
+            const annotations = [{
+                note: {
+                    label:"We can see electric vehicles once again at the top of the range.",
+                    title:"Electric Vehicles"
+                },
+                dx: 4.5,
+                dy: 4.5,
+                subject: {
+                    radaius: 40,
+                    radiusPadding: 5
+                }
+            }];
+
+            const makeAnnotations = d3.annotation()
+                .editMode(true)
+                .notePadding(15)
+                .type(type)
+                .annotations(annotations);
+            
+            d3.select("svg")
+                .append("g")
+                .attr("class", "annotation-group")
+                .call(makeAnnotations);
+
 
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_three);
