@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 147, 182)}
+    .button1 {background-color: rgb(176, 8, 182)}
 
 </style>
 <body onload='init()'>
@@ -41,8 +41,10 @@
     </div>
 
     <svg width=920 height=540></svg>
-
+    
+    <label for="buttonXlim">X axis</label>
     <input type="number" id='buttonXlim' value=12>
+    <label for="buttonYlim">Y axis</label>
     <input type="number" id='buttonYlim' value=6>
 
     <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
