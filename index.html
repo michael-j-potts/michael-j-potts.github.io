@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(57, 182, 8)}
+    .button1 {background-color: rgb(8, 182, 168)}
 
 </style>
 <body onload='init()'>
@@ -205,14 +205,12 @@
 
         
         function updatePlot() {
-            xlim = d3.select('#buttonXlim').value;
+            var xlim = d3.select('#buttonXlim').value;
             
-            var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
+            var xs = d3.scaleLinear().domain([-1,xlim]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
             d3.select("body").append("p").text("Test2");
-
-            xs.domain([-1, xlim])
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
