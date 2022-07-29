@@ -204,8 +204,8 @@
         }
 
         
-        function updatePlot() {
-            var xlim = d3.select('#buttonXlim').value;
+        async function updatePlot() {
+            xlim = d3.select('#buttonXlim').value;
             
             var xs = d3.scaleLinear().domain([-1,xlim]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
