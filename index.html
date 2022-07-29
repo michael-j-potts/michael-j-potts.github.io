@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(22, 120, 212)}
+    .button1 {background-color: rgb(88, 22, 212)}
 
 </style>
 <body onload='init()'>
@@ -213,7 +213,7 @@
                 .text("Log miles per gallon - City");
 
             //annotations
-            const scene_three_ann = d3.annotationsCalloutCircle
+            const scene_three_ann = d3.annotationCalloutCircle
 
             const annotations = [{
                 note: {
@@ -231,8 +231,6 @@
             }];
 
             const makeAnnotations = d3.annotation()
-                .editMode(true)
-                .notePadding(15)
                 .type(scene_three_ann)
                 .annotations(annotations);
             
