@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(8, 182, 153)}
+    .button1 {background-color: rgb(182, 49, 8)}
 
 </style>
 <body onload='init()'>
@@ -246,8 +246,7 @@
         }
         
         function updatePlot() {
-            d3.select("body").append("p").text("Test1");
-            xlim = this.value;
+            var xlim = this.value;
             
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
