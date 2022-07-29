@@ -10,7 +10,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(11, 8, 182)}
+    .button1 {background-color: rgb(8, 182, 81)}
 
 </style>
 <body onload='init()'>
@@ -53,7 +53,9 @@
 
             var width = 820,
                 height = 440,
-                margin = 50;
+                margin = 50,
+                legendy = [420, 410, 400, 390, 380, 370, 360, 350, 340],
+                legendx = 700;
 
             var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
@@ -72,6 +74,17 @@
                     .attr('cx', function(d) {return xs(d.EngineCylinders);})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageCityMPG));})
                     .attr('r', 3)
+                    .style('fill', function(d) {return colour(d.EngineCylinders);});
+
+            //Add in our legend
+            d3.select('svg')
+                .selectAll('circle')
+                .data(data)
+                .enter()
+                .append('circle')
+                    .attr('cx', legendx)
+                    .attr('cy', function(d) {legendy})
+                    .attr('r', 2)
                     .style('fill', function(d) {return colour(d.EngineCylinders);});
 
             //Add in our X and Y axis
@@ -100,6 +113,7 @@
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - City");
+
         }
 
         async function scene_two() {
@@ -116,7 +130,7 @@
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('cx', function(d) {return xs(d.EngineCylinders);})
                 .attr('r', 3)
-                .transition().duration(1400)
+                .transition().duration(1000)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
 
@@ -154,17 +168,17 @@
             //Transition to Highway MPG
             d3.select('svg').selectAll('circle').data(data).join('circle')
                 .attr('r', 3)
-                .transition().duration(1400)
+                .transition().duration(1000)
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
             //update our axis
             d3.select('svg').select('.Xaxis')
-                .transition().duration(1400)
+                .transition().duration(1000)
                 .call(d3.axisBottom(xs));
 
             d3.select('svg').select('.Yaxis')
-                .transition().duration(1400)
+                .transition().duration(1000)
                 .call(d3.axisLeft(ys));
         }
 
@@ -193,6 +207,50 @@
             d3.select('svg').selectAll('g').remove();
             d3.select('svg').selectAll('text').remove();
             init();
+        }
+
+
+        async function scene_four() {
+            //load our data
+            var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+
+            var width = 820,
+                height = 440;
+                groups = ['electric', 'hybrid', 'gas', 'deisel']
+
+            var xs = d3.scaleLinear().domain([2,5.5]).range([0,width]),
+                ys = d3.scaleLinear().domain([2.5,5.5]).range([height,0]);
+
+            //Transition to Highway MPG
+            d3.select('svg').selectAll('circle').data(data).join('circle')
+                .attr('r', 3)
+                .transition().duration(1000)
+                    .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
+                    .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
+
+            //update our axis
+            d3.select('svg').select('.Xaxis')
+                .transition().duration(1000)
+                .call(d3.axisBottom(xs));
+
+            d3.select('svg').select('.Yaxis')
+                .transition().duration(1000)
+                .call(d3.axisLeft(ys));
+        }
+
+        async function transition_three() {
+            //change our button
+            let btn = document.getElementById('button1');
+            btn.innerHTML = "Reset";
+            btn.setAttribute("onclick", "reset()");
+            document.body.appendChild(btn);
+
+            //update our text
+            d3.select("#explanation")
+            .text("And we can see the number of electric, hybrid, gas and deisel vehicles")
+
+            //next scene
+            scene_four();
         }
     
     </script>      
