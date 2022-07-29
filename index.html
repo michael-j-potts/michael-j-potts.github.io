@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(98, 212, 22)}
+    .button1 {background-color: rgb(22, 212, 171)}
 
 </style>
 <body onload='init()'>
@@ -234,6 +234,7 @@
             d3.select("svg")
                 .append("g")
                 .attr("class", "annotation-group")
+                .attr("id", "scene_three_ann")
                 .call(makeAnnotations);
 
 
@@ -340,7 +341,7 @@
             var xs = d3.scaleLinear().domain([Xmin,Xmax]).range([0,width]),
                 ys = d3.scaleLinear().domain([Ymin,Ymax]).range([height,0]);
 
-            d3.select('svg').select('#annotation-group').remove()
+            d3.select('svg').select('#scene_three_ann').remove()
 
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
