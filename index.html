@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(22, 212, 171)}
+    .button1 {background-color: rgb(22, 212, 38)}
 
 </style>
 <body onload='init()'>
@@ -217,12 +217,24 @@
                     label:"We can see electric vehicles once again at the top of the range.",
                     title:"Electric Vehicles"
                 },
-                x: 730,
-                y: 150,
-                dx: 100,
-                dy: 100,
+                x: 710,
+                y: 160,
+                dx: -150,
+                dy: -10,
                 subject: {
-                    radaius: 40,
+                    radius: 15,
+                    radiusPadding: 5
+                }}, {
+                note: {
+                    label:"Further, we can see that the next most fuel efficient are 2, 3 and 4 cylinder engines.",
+                    title:"2, 3, & 4 cylinder engines"
+                },
+                x: 350,
+                y: 350,
+                dx: 200,
+                dy: 0,
+                subject: {
+                    radius: 15,
                     radiusPadding: 5
                 }
             }];
@@ -285,6 +297,8 @@
             var xs = d3.scaleLinear().domain([Xmin,Xmax]).range([0,width]),
                 ys = d3.scaleLinear().domain([Ymin,Ymax]).range([height,0]);
 
+            d3.select('svg').select('#scene_one_ann').remove()
+
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
@@ -313,6 +327,8 @@
             var xs = d3.scaleLinear().domain([Xmin,Xmax]).range([0,width]),
                 ys = d3.scaleLinear().domain([Ymin,Ymax]).range([height,0]);
 
+            d3.select('svg').select('#scene_two_ann').remove()
+            
             d3.select('svg').select('.Xaxis')
                 .transition().duration(1000)
                 .call(d3.axisBottom(xs));
