@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"> 
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 
 <head>
   <title>Michael Potts</title>
@@ -39,6 +40,9 @@
         </div>
     </div>
 
+    <input type="number" id = 'buttonXlim' value = 12>
+    <input type="number" id = 'buttonYlim' value = 6>
+
     <svg width=920 height=540></svg>
 
     <button class='button button1' id="button1" onclick="transition_one()">Next scene</button>
@@ -74,17 +78,6 @@
                     .attr('cx', function(d) {return xs(d.EngineCylinders);})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageCityMPG));})
                     .attr('r', 3)
-                    .style('fill', function(d) {return colour(d.EngineCylinders);});
-
-            //Add in our legend
-            d3.select('svg')
-                .selectAll('circle')
-                .data(data)
-                .enter()
-                .append('circle')
-                    .attr('cx', legendx)
-                    .attr('cy', function(d) {legendy})
-                    .attr('r', 2)
                     .style('fill', function(d) {return colour(d.EngineCylinders);});
 
             //Add in our X and Y axis
@@ -252,7 +245,29 @@
             //next scene
             scene_four();
         }
-    
+        
+        function updatePlot() {
+            xlim = this.value;
+            
+            var xs = d3.scaleLinear().domain([-1,12]).range([0,width]),
+                ys = d3.scaleLinear().domain([2,6]).range([height,0]);
+
+            xs.domain([-1, xlim])
+
+            d3.select('svg').select('.Xaxis')
+                .transition().duration(1000)
+                .call(d3.axisBottom(xs));
+
+            d3.select('svg').selectAll('circle')
+                .data(data)
+                .transition()
+                .duration(1000)
+                .attr('cx', function(d) {return xs(d.EngineCylinders)})
+                .attr('cy', function(d) {return ys(d.AverageCityMPG)})
+        }
+
+        d3.select('#buttonXlim').on("input", updatePlot)
+        d3.select('#buttonYlim').on("input", updatePlot)
     </script>      
 </body>
 </html>
