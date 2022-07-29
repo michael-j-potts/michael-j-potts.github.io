@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(22, 212, 38)}
+    .button1 {background-color: rgb(22, 212, 212)}
 
 </style>
 <body onload='init()'>
@@ -218,23 +218,23 @@
                     title:"Electric Vehicles"
                 },
                 x: 710,
-                y: 160,
+                y: 170,
                 dx: -150,
-                dy: -10,
+                dy: 20,
                 subject: {
-                    radius: 15,
+                    radius: 150,
                     radiusPadding: 5
                 }}, {
                 note: {
                     label:"Further, we can see that the next most fuel efficient are 2, 3 and 4 cylinder engines.",
                     title:"2, 3, & 4 cylinder engines"
                 },
-                x: 350,
-                y: 350,
+                x: 370,
+                y: 340,
                 dx: 200,
-                dy: 0,
+                dy: -50,
                 subject: {
-                    radius: 15,
+                    radius: 150,
                     radiusPadding: 5
                 }
             }];
@@ -248,7 +248,6 @@
                 .attr("class", "annotation-group")
                 .attr("id", "scene_three_ann")
                 .call(makeAnnotations);
-
 
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_three);
