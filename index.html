@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(49, 182, 8)}
+    .button1 {background-color: rgb(182, 8, 66)}
 
 </style>
 <body onload='init()'>
@@ -207,7 +207,8 @@
 
             d3.select("body").append("p").text(test);
 
-            var width = 820;
+            var width = 820,
+                height = 440;
             var xs = d3.scaleLinear().domain([-1,test]).range([0,width]),
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
