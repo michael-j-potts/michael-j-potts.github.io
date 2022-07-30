@@ -63,6 +63,9 @@
             //Load our data and set initial variables
             d3.select('#explanation')
                 .text("Vehicles can be created in a variety of ways, but one common theme is, the more power a vehicle needs, the less fuel efficient it usually is.")
+                .text("This can be loosely evaluated by comparing the number of cylinders a vehicles engine contains, compared to their Highway or City miles per gallon.")
+                .text("One stipulation, is that electric vehicles do not use gallons of fuel, and so we can interpolate that this dataset uses some metric")
+                .text("to keep fuel efficiency consistent (perhaps, some division of a full battery charge.")
             
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
@@ -217,6 +220,16 @@
                 dy:0,
             }];
 
+            const makeAnnotations = d3.annotation()
+                .type(scene_one_ann)
+                .annotations(annotations);
+            
+            d3.select("svg")
+                .append("g")
+                .attr("class", "annotation-group")
+                .attr("id", "scene_one_ann")
+                .call(makeAnnotations);
+
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_two);
             d3.select('#buttonYmin').on("input", updatePlot_two);
@@ -283,8 +296,8 @@
                 },
                 x: 680,
                 y: 175,
-                dx: -250,
-                dy: -1,
+                dx: 0,
+                dy: 40,
                 subject: {
                     radius: 75,
                     radiusPadding: 5
@@ -295,8 +308,8 @@
                 },
                 x: 370,
                 y: 340,
-                dx: 200,
-                dy: 1,
+                dx: -200,
+                dy: -30,
                 subject: {
                     radius: 75,
                     radiusPadding: 5
@@ -322,7 +335,7 @@
 
         async function transition_two() {
             //remove any annotations
-            d3.select('svg').select('#scene_one_ann').remove()
+            d3.select('svg').select('#scene_two_ann').remove()
             //change our button
             let btn = document.getElementById('button1');
             btn.innerHTML = "Reset";
