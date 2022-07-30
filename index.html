@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(22, 168, 212)}
+    .button1 {background-color: rgb(22, 73, 212)}
 
 </style>
 <body onload='init()'>
@@ -201,6 +201,16 @@
                 .transition().duration(1000)
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
 
+            //re-add our legend
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",50).attr("r", 3).style("fill", d3.schemeCategory10[5]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",65).attr("r", 3).style("fill", d3.schemeCategory10[6]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",80).attr("r", 3).style("fill", d3.schemeCategory10[7]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",95).attr("r", 3).style("fill", d3.schemeCategory10[0]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",110).attr("r", 3).style("fill", d3.schemeCategory10[1]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",125).attr("r", 3).style("fill", d3.schemeCategory10[3]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",140).attr("r", 3).style("fill", d3.schemeCategory10[4]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",155).attr("r", 3).style("fill", d3.schemeCategory10[2]);
+
             d3.select('svg').select('#City').remove();
 
             d3.select("svg").append("text")
@@ -286,6 +296,16 @@
                 .transition().duration(1000)
                     .attr('cx', function(d) {return xs(Math.log(d.AverageCityMPG));})
                     .attr('cy', function(d) {return ys(Math.log(d.AverageHighwayMPG));});
+
+            //re-add our legend
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",50).attr("r", 3).style("fill", d3.schemeCategory10[5]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",65).attr("r", 3).style("fill", d3.schemeCategory10[6]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",80).attr("r", 3).style("fill", d3.schemeCategory10[7]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",95).attr("r", 3).style("fill", d3.schemeCategory10[0]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",110).attr("r", 3).style("fill", d3.schemeCategory10[1]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",125).attr("r", 3).style("fill", d3.schemeCategory10[3]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",140).attr("r", 3).style("fill", d3.schemeCategory10[4]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",155).attr("r", 3).style("fill", d3.schemeCategory10[2]);
 
             //update our axis
             d3.select('svg').select('.Xaxis')
