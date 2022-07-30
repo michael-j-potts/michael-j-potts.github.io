@@ -128,7 +128,6 @@
                     title:""
                 },
                 connector: {
-                    end: "dot",
                     type: "curve",
                     points: [[150,170],[235,180],[310,190],[435,250],[550,270],[660,290],[750,290]]
                 },
@@ -191,6 +190,32 @@
                 .attr("y", 15)
                 .attr("transform", "rotate(-90)")
                 .text("Log miles per gallon - Highway");
+
+            //annotations
+            const scene_one_ann = d3.annotationLabel
+            const annotations = [{
+                note: {
+                    label:"",
+                    title:""
+                },
+                connector: {
+                    type: "curve",
+                    points: [[150,170],[235,180],[310,190],[435,250],[550,270],[660,290],[750,290]]
+                },
+                x: 115,
+                y: 120,
+                dx: 0,
+                dy: 0,
+            }, {
+                note: {
+                    label:"We can see a similar trend with Highway fuel efficiency.",
+                    title:"Fuel efficiency slope"
+                },
+                x:700,
+                y:100,
+                dx:0,
+                dy:0,
+            }];
 
             //set listeners for our minimum and maximums
             d3.select('#buttonXmin').on("input", updatePlot_two);
@@ -296,6 +321,8 @@
         }
 
         async function transition_two() {
+            //remove any annotations
+            d3.select('svg').select('#scene_one_ann').remove()
             //change our button
             let btn = document.getElementById('button1');
             btn.innerHTML = "Reset";
