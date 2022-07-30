@@ -24,7 +24,7 @@
                     <h1>Visual Narrative Project</h1>
                     <h2>Fuel Efficiency based on vehicle engine cylinders</h2>
                     <p class="authors" style="font-size: 12px">
-                    Michael Potts - July 31st, 2022
+                    Michael Potts - July 30th, 2022
                     </p>
                 </div>
                 <div class="graphic col-sm-4 pull-right">
@@ -77,7 +77,7 @@
                 ys = d3.scaleLinear().domain([2,6]).range([height,0]);
 
             var colour = d3.scaleOrdinal().range(d3.schemeCategory10);
-   
+            
             // Create our initial canvas
             d3.select('svg')
                 .attr("width", totalwidth + 2 * margin)
@@ -98,7 +98,13 @@
                 .attr("class", "Yaxis")
                 .call(d3.axisLeft(ys).tickValues([2,3,4,5,6])
                 );
-        
+
+            d3.select("svg").append("g")
+                .attr("class", "Xaxis")
+                .attr("transform","translate("+margin+","+(height + margin)+")")
+                .call(d3.axisBottom(xs).tickValues([0,2,4,6,8,10,12])
+                );    
+
             //Making a custom legend
             d3.select('svg').append("circle").attr("cx",880).attr("cy",50).attr("r", 3).style("fill", d3.schemeCategory10[5]);
             d3.select('svg').append("circle").attr("cx",880).attr("cy",65).attr("r", 3).style("fill", d3.schemeCategory10[6]);
@@ -117,12 +123,6 @@
             d3.select('svg').append("text").attr("x", 900).attr("y", 130).text("8 Cylinder").style("font-size", "12px").attr("alignment-baseline","middle")
             d3.select('svg').append("text").attr("x", 900).attr("y", 145).text("10 Cylinder").style("font-size", "12px").attr("alignment-baseline","middle")
             d3.select('svg').append("text").attr("x", 900).attr("y", 160).text("12 Cylinder").style("font-size", "12px").attr("alignment-baseline","middle")
-
-            d3.select("svg").append("g")
-                .attr("class", "Xaxis")
-                .attr("transform","translate("+margin+","+(height + margin)+")")
-                .call(d3.axisBottom(xs).tickValues([0,2,4,6,8,10,12])
-                );
             
             //Add in our axis names
             d3.select("svg").append("text")
@@ -274,7 +274,7 @@
 
             //update our text
             d3.select("#explanation")
-            .text("In this chart, we can observe Average Highway log miles per gallon. While similar to the Average City log miles per gallon, we can actually see an improvement in performance for every engine cylinder class except for 0 cylinder vehicles which perform slightly worse.");
+            .text("In this chart, we can observe Average Highway log miles per gallon. While similar to the Average City log miles per gallon, we can actually see an improvement in performance for every engine cylinder class except for 0 cylinder vehicles which perform slightly worse.                                                                                                                                                                                                                                         ");
 
             scene_two();
         }
@@ -381,7 +381,7 @@
 
             //update our text
             d3.select("#explanation")
-            .text("Finally, we can compare city mpg to highway miles per gallon. This chart shows us the vehicles that have the highest log fuel efficiencies with city log fuel efficiency on the x axis and highway log fuel efficiency on the y axis. This allows us to visualize fuel efficiency on a roughly linear scale which confirms our initial hypothesis that fuel efficiency is based on the number of engine cylinders present in a vehicle.");
+            .text("Finally, we can compare city mpg to highway miles per gallon. This chart shows us the vehicles that have the highest log fuel efficiencies with city log fuel efficiency on the x axis and highway log fuel efficiency on the y axis. This allows us to visualize fuel efficiency on a roughly linear scale which confirms our initial hypothesis that fuel efficiency is based on the number of engine cylinders present in a vehicle.                                                                                              ");
 
             //next scene
             scene_three();
