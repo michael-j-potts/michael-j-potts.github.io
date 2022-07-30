@@ -11,7 +11,7 @@
     rect {fill: rgb(46, 202, 202); stroke: black;} 
     .button {color: white; text-align: center; display: inline-block; font-size: 16px; cursor: pointer;
             padding: 8px 24px; margin: 4px 2px;}
-    .button1 {background-color: rgb(98, 212, 22)}
+    .button1 {background-color: rgb(22, 168, 212)}
 
 </style>
 <body onload='init()'>
@@ -62,10 +62,7 @@
         async function init() {
             //Load our data and set initial variables
             d3.select('#explanation')
-                .text("Vehicles can be created in a variety of ways, but one common theme is, the more power a vehicle needs, the less fuel efficient it usually is.")
-                .text("This can be loosely evaluated by comparing the number of cylinders a vehicles engine contains, compared to their Highway or City miles per gallon.")
-                .text("One stipulation, is that electric vehicles do not use gallons of fuel, and so we can interpolate that this dataset uses some metric")
-                .text("to keep fuel efficiency consistent (perhaps, some division of a full battery charge.")
+                .text("Vehicles can be created in a variety of ways, but one common theme is, the more power a vehicle needs, the less fuel efficient it usually is. This can be loosely evaluated by comparing the number of cylinders a vehicles engine contains, compared to their Highway or City miles per gallon. One stipulation, is that electric vehicles do not use gallons of fuel, and so we can interpolate that this dataset uses some metric to keep fuel efficiency consistent (perhaps, some division of a full battery charge.")
             
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
@@ -203,12 +200,12 @@
                 },
                 connector: {
                     type: "curve",
-                    points: [[150,150],[235,160],[310,170],[435,230],[550,240],[660,250],[750,250]]
+                    points: [[150,160],[235,170],[310,180],[435,210],[550,220],[660,240],[750,250]]
                 },
                 x: 115,
                 y: 120,
                 dx: 750,
-                dy: 290,
+                dy: 250,
             }, {
                 note: {
                     label:"We can see a similar trend with Highway fuel efficiency.",
@@ -294,12 +291,12 @@
                     label:"We can see electric vehicles once again at the top of the range.",
                     title:"Electric Vehicles"
                 },
-                x: 680,
+                x: 685,
                 y: 175,
                 dx: 0,
-                dy: 40,
+                dy: 60,
                 subject: {
-                    radius: 75,
+                    radius: 80,
                     radiusPadding: 5
                 }}, {
                 note: {
@@ -308,7 +305,7 @@
                 },
                 x: 370,
                 y: 340,
-                dx: -200,
+                dx: -170,
                 dy: -30,
                 subject: {
                     radius: 75,
