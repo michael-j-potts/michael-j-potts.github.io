@@ -230,12 +230,12 @@
                 },
                 connector: {
                     type: "curve",
-                    points: [[150,155],[235,160],[310,165],[435,200],[550,205],[660,205],[750,205]]
+                    points: [[150,155],[235,160],[310,165],[435,200],[550,205],[660,215],[750,220]]
                 },
                 x: 115,
                 y: 145,
                 dx: 750,
-                dy: 250,
+                dy: 220,
             }, {
                 note: {
                     label:"We can see a similar trend with Highway fuel efficiency.",
@@ -274,7 +274,7 @@
 
             //update our text
             d3.select("#explanation")
-            .text("In this chart, we can observe Average Highway miles per gallon")
+            .text("In this chart, we can observe Average Highway log miles per gallon. While similar to the Average City log miles per gallon, we can actually see an improvement in performance for every engine cylinder class except for 0 cylinder vehicles which perform slightly worse.");
 
             scene_two();
         }
@@ -381,7 +381,7 @@
 
             //update our text
             d3.select("#explanation")
-            .text("Finally, we can compare city mpg to highway miles per gallon")
+            .text("Finally, we can compare city mpg to highway miles per gallon. This chart shows us the vehicles that have the highest log fuel efficiencies with city log fuel efficiency on the x axis and highway log fuel efficiency on the y axis. This allows us to visualize fuel efficiency on a roughly linear scale which confirms our initial hypothesis that fuel efficiency is based on the number of engine cylinders present in a vehicle.");
 
             //next scene
             scene_three();
