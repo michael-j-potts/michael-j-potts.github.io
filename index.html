@@ -124,18 +124,27 @@
             const scene_one_ann = d3.annotationLabel
             const annotations = [{
                 note: {
-                    label:"We can see a negative fuel efficiency slope as a vehicles # of cylinders increase.",
-                    title:"Slope of vehicles by Engine Cylinder"
+                    label:"",
+                    title:""
                 },
                 connector: {
                     end: "dot",
                     type: "curve",
-                    points: [[150,170],[235,180],[310,190],[435,230],[550,270],[660,290],[750,290]]
+                    points: [[150,170],[235,180],[310,190],[435,250],[550,270],[660,290],[750,290]]
                 },
                 x: 115,
                 y: 120,
-                dx: 700,
-                dy: 0,
+                dx: 750,
+                dy: 290,
+            }, {
+                note: {
+                    label:"We can see a negative fuel efficiency slope as a vehicles # of cylinders increases.",
+                    title:"Fuel efficiency slope"
+                },
+                x:700,
+                y:100,
+                dx:700,
+                dy:100,
             }];
 
             const makeAnnotations = d3.annotation()
