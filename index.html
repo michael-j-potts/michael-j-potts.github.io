@@ -66,7 +66,8 @@
             
             var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
-            var width = 820,
+            var totalwidth = 1300,
+                width = 820,
                 height = 440,
                 margin = 50,
                 legendy = [420, 410, 400, 390, 380, 370, 360, 350, 340],
@@ -79,7 +80,7 @@
    
             // Create our initial canvas
             d3.select('svg')
-                .attr("width", width + 2 * margin)
+                .attr("width", totalwidth + 2 * margin)
                 .attr("height", height + 2 * margin)
                     .append("g").attr("transform", "translate("+margin+","+margin+")")
                 .selectAll('circle')
@@ -99,14 +100,14 @@
                 );
         
             //Making a custom legend
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",50).attr("r", 3).style("fill", d3.schemeCategory10[0]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",65).attr("r", 3).style("fill", d3.schemeCategory10[1]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",80).attr("r", 3).style("fill", d3.schemeCategory10[2]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",95).attr("r", 3).style("fill", d3.schemeCategory10[3]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",110).attr("r", 3).style("fill", d3.schemeCategory10[4]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",125).attr("r", 3).style("fill", d3.schemeCategory10[5]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",140).attr("r", 3).style("fill", d3.schemeCategory10[6]);
-            d3.select('svg').append("circle").attr("cx",880).attr("cy",155).attr("r", 3).style("fill", d3.schemeCategory10[7]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",50).attr("r", 3).style("fill", d3.schemeCategory10[5]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",65).attr("r", 3).style("fill", d3.schemeCategory10[6]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",80).attr("r", 3).style("fill", d3.schemeCategory10[7]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",95).attr("r", 3).style("fill", d3.schemeCategory10[0]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",110).attr("r", 3).style("fill", d3.schemeCategory10[1]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",125).attr("r", 3).style("fill", d3.schemeCategory10[3]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",140).attr("r", 3).style("fill", d3.schemeCategory10[4]);
+            d3.select('svg').append("circle").attr("cx",880).attr("cy",155).attr("r", 3).style("fill", d3.schemeCategory10[2]);
 
             d3.select('svg').append("text").attr("x", 900).attr("y", 55).text("0 Cylinder").style("font-size", "12px").attr("alignment-baseline","middle")
             d3.select('svg').append("text").attr("x", 900).attr("y", 70).text("2 Cylinder").style("font-size", "12px").attr("alignment-baseline","middle")
