@@ -223,19 +223,19 @@
 
             //annotations
             const scene_two_ann = d3.annotationLabel
-            const annotations = [{
+            const annotations2 = [{
                 note: {
                     label:"",
                     title:""
                 },
                 connector: {
                     type: "curve",
-                    points: [[150,155],[235,160],[310,165],[435,200],[550,205],[660,215],[750,220]]
+                    points: [[150,145],[235,150],[310,155],[435,195],[550,200],[660,210],[750,215]]
                 },
                 x: 115,
-                y: 145,
+                y: 140,
                 dx: 750,
-                dy: 220,
+                dy: 215,
             }, {
                 note: {
                     label:"We can see a similar trend with Highway fuel efficiency.",
@@ -249,7 +249,7 @@
 
             const makeAnnotations = d3.annotation()
                 .type(scene_two_ann)
-                .annotations(annotations);
+                .annotations(annotations2);
             
             d3.select("svg")
                 .append("g")
@@ -326,7 +326,7 @@
 
             //annotations
             const scene_three_ann = d3.annotationCalloutCircle
-            const annotations = [{
+            const annotations3 = [{
                 note: {
                     label:"We can see electric vehicles once again at the top of the range.",
                     title:"Electric Vehicles"
@@ -355,7 +355,7 @@
 
             const makeAnnotations = d3.annotation()
                 .type(scene_three_ann)
-                .annotations(annotations);
+                .annotations(annotations3);
             
             d3.select("svg")
                 .append("g")
