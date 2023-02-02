@@ -2463,10 +2463,10 @@ input[type="button"].btn-block {
       rgba(52, 73, 94, 0.8),
       rgba(52, 73, 94, 0.8)
     ),
-    url(http://timothy.expert/codepen-resources/computer.jpg) no-repeat center
+    url() no-repeat center /*Add photo link ---------------------------------- */
       center fixed;
   background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(52, 73, 94, 0.8)),
-    url(http://timothy.expert/codepen-resources/computer.jpg) no-repeat center
+    url() no-repeat center /*Add photo link ------------------------------------- */
       center fixed;
   background-size: cover;
   text-transform: capitalize;
@@ -2540,10 +2540,10 @@ input[type="button"].btn-block {
       rgba(52, 73, 94, 0.8),
       rgba(52, 73, 94, 0.8)
     ),
-    url(http://timothy.expert/codepen-resources/writing.jpg) no-repeat center
+    url() no-repeat center /*Add photo link-------------------------------------------- */
       center;
   background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(52, 73, 94, 0.8)),
-    url(http://timothy.expert/codepen-resources/writing.jpg) no-repeat center
+    url() no-repeat center /*Add photo link-------------------------------------------- */
       center;
   height: 250px;
   background-size: cover;
@@ -2562,10 +2562,10 @@ input[type="button"].btn-block {
       rgba(52, 73, 94, 0.8),
       rgba(52, 73, 94, 0.8)
     ),
-    url(http://timothy.expert/codepen-resources/collab.jpg) no-repeat center
+    url() no-repeat center /*Add photo link-------------------------------------------- */
       center fixed;
   background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(52, 73, 94, 0.8)),
-    url(http://timothy.expert/codepen-resources/collab.jpg) no-repeat center
+    url() no-repeat center /*Add photo link-------------------------------------------- */
       center fixed;
   height: 550px;
   background-size: cover;
