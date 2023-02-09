@@ -11906,7 +11906,7 @@ br2 {
   animation: progress-bar-stripes 2s linear infinite;
 }
 .progress-bar-html {
-  background-color: #e9ac36;
+  background-color: #efa914;
 }
 .progress-striped .progress-bar-html {
   background-image: -webkit-linear-gradient(
@@ -11931,7 +11931,7 @@ br2 {
   );
 }
 .progress-bar-css {
-  background-color: #7dd31d;
+  background-color: #14ef14;
 }
 .progress-striped .progress-bar-css {
   background-image: -webkit-linear-gradient(
@@ -11956,7 +11956,7 @@ br2 {
   );
 }
 .progress-bar-php {
-  background-color: #33cec2;
+  background-color: #14dbef;
 }
 .progress-striped .progress-bar-php {
   background-image: -webkit-linear-gradient(
@@ -11981,7 +11981,7 @@ br2 {
   );
 }
 .progress-bar-sql {
-  background-color: #3449d6;
+  background-color: #146aef;
 }
 .progress-striped .progress-bar-sql {
   background-image: -webkit-linear-gradient(
@@ -12015,14 +12015,14 @@ br2 {
   margin-top: 10px;
 }
 .html {
-  background: #e9ac36;
+  background: #ef1914;
 }
 .css {
-  background: #7dd31d;
+  background: #14ef14;
 }
 .php {
-  background: #33cec2;
+  background: #14dbef;
 }
 .sql {
-  background: #3449d6;
+  background: #146aef;
 }
